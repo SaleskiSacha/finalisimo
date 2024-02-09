@@ -98,22 +98,39 @@ namespace finalisimo
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            if (Posición == alquiler.Length)
+            {
+                MessageBox.Show("No es posible seguir cargando datos");
+            }
+            else
+            {
+                string Tipo;
+                if (optMountain.Checked == true)
+                {
+                    Tipo = "Mountain bike";
+                }
+                else
+                {
+                    Tipo = "Todos";
+                }
+                if (ValidardDatos())
+                {
+                    alquiler[Posición].NombreCliente = txtNombre.Text;
+                    alquiler[Posición].ImporteTotal = decimal.Parse(txtImporte.Text.Replace("$", "").Trim());
+                    alquiler[Posición].CantidadDias = int.Parse(txtDias.Text);
+                    alquiler[Posición].TipoDeBicicleta = Tipo;
+                    MessageBox.Show("Alquiler registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                Posición++; //SE incrementa el indice 
+                            //controlar si se completo el vector
+                if (Posición == 30)
+                {
+                    btnRegistrar.Enabled = false;
+                    MessageBox.Show("Datos completos, no se pueden agregar más");
+                }
+            }
 
-            if (ValidardDatos())
-            {
-                alquiler[Posición].NombreCliente = txtNombre.Text;
-                alquiler[Posición].ImporteTotal = decimal.Parse(txtImporte.Text.Replace("$", "").Trim());
-                alquiler[Posición].CantidadDias = int.Parse(txtDias.Text);
-                alquiler[Posición].TipoDeBicicleta = comboBoxTipoBicicleta.SelectedItem.ToString();
-                MessageBox.Show("Alquiler registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            Posición++; //SE incrementa el indice 
-            //controlar si se completo el vector
-            if (Posición == 30)
-            {
-                btnRegistrar.Enabled = false;
-                MessageBox.Show("Datos completos, no se pueden agregar más" );
-            }
+            
             // limpiar la interfaz
             ResetForm();
             
@@ -132,20 +149,21 @@ namespace finalisimo
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            dgv1.Rows.Clear();
             Int32 i = 0;
             while (i < Posición)
             {
                 if (optTodos.Checked)
                 {
-                    if (alquiler[i].TipoDeBicicleta == comboBoxTipoBicicleta.Text && alquiler[i].TipoDeBicicleta == "Todos")
-                    {
+                    
+                    
                         dgv1.Rows.Add(alquiler[i].TipoDeBicicleta, alquiler[i].NombreCliente, alquiler[i].CantidadDias, alquiler[i].ImporteTotal);
 
-                    }
+                    
                 }
                 else
                 {
-                    if (alquiler[i].TipoDeBicicleta == comboBoxTipoBicicleta.Text && alquiler[i].TipoDeBicicleta == "MOUNTAIN")
+                    if (alquiler[i].TipoDeBicicleta == comboBoxTipoBicicleta.Text && alquiler[i].TipoDeBicicleta == "Mountain bike")
                     {
                         dgv1.Rows.Add(alquiler[i].TipoDeBicicleta, alquiler[i].NombreCliente, alquiler[i].CantidadDias, alquiler[i].ImporteTotal);
                     }
@@ -165,6 +183,11 @@ namespace finalisimo
 
             btnRegistrar.Enabled = true;
             CalculoTotal();
+        }
+
+        private void dgv1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

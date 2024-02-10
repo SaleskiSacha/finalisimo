@@ -24,6 +24,7 @@ namespace finalisimo
             public string TipoDeBicicleta;
             public int CantidadDias;
             public decimal ImporteTotal;
+            public string Tipo;
         }
         Alquiler[] alquiler;
         int Posición;
@@ -118,7 +119,8 @@ namespace finalisimo
                     alquiler[Posición].NombreCliente = txtNombre.Text;
                     alquiler[Posición].ImporteTotal = decimal.Parse(txtImporte.Text.Replace("$", "").Trim());
                     alquiler[Posición].CantidadDias = int.Parse(txtDias.Text);
-                    alquiler[Posición].TipoDeBicicleta = Tipo;
+                    alquiler[Posición].TipoDeBicicleta = comboBoxTipoBicicleta.SelectedItem.ToString();
+                    alquiler[Posición].Tipo = Tipo;
                     MessageBox.Show("Alquiler registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 Posición++; //SE incrementa el indice 
@@ -151,6 +153,7 @@ namespace finalisimo
         {
             dgv1.Rows.Clear();
             Int32 i = 0;
+            
             while (i < Posición)
             {
                 if (optTodos.Checked)
@@ -158,13 +161,17 @@ namespace finalisimo
                     
                     
                         dgv1.Rows.Add(alquiler[i].TipoDeBicicleta, alquiler[i].NombreCliente, alquiler[i].CantidadDias, alquiler[i].ImporteTotal);
+                    
+                    
+                        
 
                     
                 }
                 else
                 {
-                    if (alquiler[i].TipoDeBicicleta == comboBoxTipoBicicleta.Text && alquiler[i].TipoDeBicicleta == "Mountain bike")
+                    if (optMountain.Checked)
                     {
+                        
                         dgv1.Rows.Add(alquiler[i].TipoDeBicicleta, alquiler[i].NombreCliente, alquiler[i].CantidadDias, alquiler[i].ImporteTotal);
                     }
 

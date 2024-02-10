@@ -49,9 +49,8 @@
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnCalcular = new System.Windows.Forms.Button();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
@@ -66,9 +65,8 @@
             this.dgv1.AllowUserToDeleteRows = false;
             this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column5,
-            this.Column1,
             this.Column2,
+            this.Column1,
             this.Column3,
             this.Column4});
             this.dgv1.Location = new System.Drawing.Point(12, 338);
@@ -153,10 +151,6 @@
             // comboBoxTipoBicicleta
             // 
             this.comboBoxTipoBicicleta.FormattingEnabled = true;
-            this.comboBoxTipoBicicleta.Items.AddRange(new object[] {
-            "Adulto de Paseo",
-            "Adulto Mountain Bike",
-            "Niño de Paseo"});
             this.comboBoxTipoBicicleta.Location = new System.Drawing.Point(146, 70);
             this.comboBoxTipoBicicleta.Name = "comboBoxTipoBicicleta";
             this.comboBoxTipoBicicleta.Size = new System.Drawing.Size(189, 21);
@@ -283,23 +277,17 @@
             this.btnCalcular.UseVisualStyleBackColor = true;
             this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
             // 
-            // Column5
+            // Column2
             // 
-            this.Column5.HeaderText = "Alquileres";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
+            this.Column2.HeaderText = "Bicicleta";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Cliente";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Bicicleta";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
@@ -358,9 +346,8 @@
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnCalcular;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }

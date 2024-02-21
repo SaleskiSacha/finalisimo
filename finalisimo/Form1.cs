@@ -171,8 +171,10 @@ namespace finalisimo
                 {
                     if (optMountain.Checked)
                     {
-                        
-                        dgv1.Rows.Add(alquiler[i].TipoDeBicicleta, alquiler[i].NombreCliente, alquiler[i].CantidadDias, alquiler[i].ImporteTotal);
+                        if (alquiler[i].TipoDeBicicleta == "Adulto Mountain Bike")
+                        {
+                            dgv1.Rows.Add(alquiler[i].TipoDeBicicleta, alquiler[i].NombreCliente, alquiler[i].CantidadDias, alquiler[i].ImporteTotal);
+                        }
                     }
 
                 }
